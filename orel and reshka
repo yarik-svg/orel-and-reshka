@@ -1,0 +1,13 @@
+import telebot
+from random import choice
+
+# Вставь сюда токен, который даст @BotFather в Telegram
+TOKEN = "ТВОЙ_ТОКЕН_ЗДЕСЬ"
+bot = telebot.TeleBot(TOKEN)
+
+@bot.message_handler(commands=['coin'])
+def coin_handler(message):
+    coin = choice(["ОРЕЛ", "РЕШКА"])
+    bot.reply_to(message, f"Выпало: {coin}")
+
+bot.polling(none_stop=True)
